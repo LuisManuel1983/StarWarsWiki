@@ -1,0 +1,56 @@
+/*****************************************/
+/** Main structure of pages             **/
+/** Be carefull with any modifications  **/
+/** on this section                     **/
+/*****************************************/
+html,
+body {
+    margin:0;
+    padding:0;
+    height:100%;
+    background-image: url(../images/background13.jpg);
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position: center; 
+    background-size:cover;
+    color: ghostwhite;
+    padding-top: 30px;  /* leave this ONLY when using a NAVBAR INSTEAD of the header section */
+}
+
+#wrapper {
+    min-height:100%;
+    position:relative;
+}
+
+/* can be replaced with a navbar */
+#header {
+    padding:10px;
+}
+
+#content {
+    width: 100%;
+    padding-bottom:40px;   /* Same value as the height of the footer element */
+    padding-top: 5px;
+}
+
+#footer {
+    height:40px;    /* For every line add 20px to the value (1L=20px, 2L=40px, 3L=60px, etc.) */
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    text-align: center;
+    background-color: #000;
+}
+
+/*****************************************/
+/** Personal Styles for the site        **/
+/*****************************************/
+
+p {
+    text-align: justify;
+}
+
+.footer-text { 
+    color: #FFF;
+}

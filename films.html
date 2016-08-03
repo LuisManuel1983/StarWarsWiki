@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <meta name="description" content="Proyecto 5ta semana curso 4GEEKS">
+        <meta name="author" content="Luis Santana">
+        <link rel="icon" href="images/favicon.ico">
+        <title>Proyecto Semana 5</title>
+        
+        <!--===================== CSS FILES =====================-->
+        <link rel="stylesheet" href="css/bootstrap.min.css" >
+        <link rel="stylesheet" href="css/style.css" >
+    </head>
+
+    <body >
+        
+    <!--===================== WRAPPER =====================-->
+    <div id="wrapper">
+        
+        <!--===================== HEADER (NAVBAR) ===================== -->
+        <nav class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container"> 
+                <div class="navbar-header">
+                    
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> 
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Star Wars</a>
+                </div>
+                
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html"        >Home</a></li>
+                        <li class="active"><a href="#"  >Films</a></li>
+                        <li><a href="characters.html"   >Characters</a></li>
+                        <li><a href="planets.html"      >Planets</a></li>
+                        <li><a href="vehicles.html"     >Vehicles</a></li>
+                        <li><a href="starships.html"    >Starships</a></li>
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+        
+        <!--===================== CONTENT (Main Section) ===================== -->
+        <div id="content">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col-md-12 text-info">
+                        <div class="jumbotron">
+                            <h1>Star Wars</h1>
+                            <p>Details of the films from the franchise</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 pagination text-left" hidden="true">
+                        <button value="" class="previous btn btn-primary disabled">&laquo;&laquo; PREVIOUS</button>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 pagination text-right" hidden="true">
+                        <button value="" class="next btn btn-primary disabled">NEXT &raquo;&raquo;</button>
+                    </div>
+                </div>
+                    
+                <div class="row" id="films"></div>
+                
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 pagination text-left" hidden="true">
+                        <button value="" class="previous btn btn-primary disabled">&laquo;&laquo; PREVIOUS</button>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 pagination text-right" hidden="true">
+                        <button value="" class="next btn btn-primary disabled">NEXT &raquo;&raquo;</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!--===================== END OF CONTENT =====================-->
+        
+        <!--===================== FOOTER =====================-->
+        <div id="footer">
+            <div class="container footer-text">
+                &copy; 2016 Star Wars &nbsp;
+                <a href="index.html">Home</a> &nbsp;
+                <a href="#">Films</a> &nbsp; 
+                <a href="characters.html">Characters</a> &nbsp;
+                <a href="planets.html">Planets</a> &nbsp;
+                <a href="vehicles.html">Vehicles</a> &nbsp;
+                <a href="starships.html">Starships</a> 
+            </div> 
+        </div>
+        
+        <!--===================== Java Script =====================-->
+        <script src="js/jquery-2.1.4.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/functions.js"></script>
+        <script type="text/javascript" >
+            $(document).ready(function(){
+                
+                /****************** LOAD FILMS ******************/
+                $(function() { loadFilms("http://swapi.co/api/films/",2); });
+                
+                /****************** PAGINATION ACTIONS ******************/
+                $(".previous").on("click", function(){
+                    var url = this.value;
+                    loadFilms(url);
+                });
+                
+                $(".next").on("click", function(){
+                    var url = this.value;
+                    loadFilms(url);
+                });
+                
+            }); // end of JS
+        </script>
+        
+    </div>
+    <!--===================== END OF WRAPPER =====================-->
+    
+    </body>
+</html>
