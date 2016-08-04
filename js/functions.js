@@ -142,6 +142,12 @@ function loadCharacters(URL){
     
     var characters="";
     
+    var c=0;
+    var f=0;
+    
+    var finalc = 0;
+    var finalf = 0;
+    
     $.ajax({
         url: URL,
         dataType: "json",
@@ -151,25 +157,29 @@ function loadCharacters(URL){
             validatePagination(data);
             
             // Carga data principal
-            for (var v = data.results.length - 1; v >= 0; v--) {
+            finalc = data.results.length;
+            
+            for (c ; c < finalc ; c++) {
                 
                 characters += 
                       '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="height: 400px;">'
-                    + '<h3>' + data.results[v].name + '</h3>'
-                    + 'Species : <div id="species'+ v +'"></div></br>'
-                    + 'Planet: <div id="planet'+ v +'"></div></br>'
-                    + 'Language: <div id="lang'+ v +'"></div></br>';
+                    + '<h3>' + data.results[c].name + '</h3>'
+                    + 'Species : <div id="species'+ c +'"></div></br>'
+                    + 'Planet: <div id="planet'+ c +'"></div></br>'
+                    + 'Language: <div id="lang'+ c +'"></div></br>';
                 
                 // Search for the species and planet of the character
-                searchSpecies(data.results[v].species, "#species"+v, "#lang"+v);
-                searchPlanet(data.results[v].homeworld, "#planet"+v);
+                searchSpecies(data.results[c].species, "#species"+c, "#lang"+c);
+                searchPlanet(data.results[c].homeworld, "#planet"+c);
                 
                 // List of films of the character
-                characters +=  '<h4>Appears in:</h4><ul id="films'+v+'">';
+                characters +=  '<h4>Appears in:</h4><ul id="films'+c+'">';
                 
-                for (var i = data.results[v].films.length - 1; i >= 0; i--) {
+                finalf = data.results[c].films.length;
+            
+                for (f ; f < finalf ; f++) {
                     
-                    searchFilmName(data.results[v].films[i], "#films"+v);
+                    searchFilmName(data.results[c].films[f], "#films"+c);
                 }
                 
                 characters += '</ul></div>';
@@ -240,6 +250,9 @@ function loadPlanets(URL){
     
     var planets="";
     
+    var p = 0;
+    var finalp = 0;
+    
     $.ajax({
         url: URL,
         dataType: "json",
@@ -249,7 +262,9 @@ function loadPlanets(URL){
             validatePagination(data);
             
             // Carga data principal
-            for (var p = data.results.length - 1; p >= 0; p--) {
+            finalp = data.results.length;
+            
+            for (p ; p < finalp ; p++) {
                 
                 planets += 
                       '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="height: 200px;">'
@@ -277,6 +292,9 @@ function loadVehicles(URL){
     
     var vehicles="";
     
+    var v = 0;
+    var finalv = 0;
+    
     $.ajax({
         url: URL,
         dataType: "json",
@@ -286,7 +304,9 @@ function loadVehicles(URL){
             validatePagination(data);
             
             // Carga data principal
-            for (var v = data.results.length - 1; v >= 0; v--) {
+            finalv = data.results.length;
+            
+            for (v ; v < finalv ; v++) {
                 
                 vehicles += 
                       '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="height: 280px;">'
@@ -314,6 +334,9 @@ function loadStarships(URL){
     
     var starships="";
     
+    var s = 0;
+    var finals = 0;
+    
     $.ajax({
         url: URL,
         dataType: "json",
@@ -323,7 +346,9 @@ function loadStarships(URL){
             validatePagination(data);
             
             // Carga data principal
-            for (var s = data.results.length - 1; s >= 0; s--) {
+            finals = data.results.length;
+            
+            for (s ; v < finals ; s++) {
                 
                 starships += 
                       '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="height: 280px;">'
