@@ -6,7 +6,7 @@
 /*************************************************/
 function test(URL){
     
-    //alert(URL.slice(-2));
+    alert(URL.slice(-2));
 }
 
 
