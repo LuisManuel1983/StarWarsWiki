@@ -1,5 +1,16 @@
 
 /*************************************************/
+/** Function that returns the name of a         **/
+/** character from a film                       **/
+/**                                             **/
+/*************************************************/
+function test(URL){
+    
+    //alert(URL.slice(-2));
+}
+
+
+/*************************************************/
 /** Function to validate the next and prev      **/
 /** buttons of the pagination                   **/
 /**                                             **/
@@ -55,6 +66,8 @@ function loadFilms(URL,origen){
     
     var finalF = 0;
     var finalC = 0;
+    
+    test(URL);
     
     $.ajax({
         url: URL,
