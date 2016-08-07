@@ -7,6 +7,7 @@
 function test(URL){
     
     alert(URL.slice(-2));
+    // otra linea
 }
 
 
